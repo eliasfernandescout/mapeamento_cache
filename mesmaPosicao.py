@@ -1,17 +1,3 @@
-def inicializar_cache(tamanho_cache):
-    cache = {}
-    for indice in range(tamanho_cache):
-        cache[indice] = -1
-    return cache
-
-# outputCache = inicializar_cache(5)
-def imprimir_cache(cache):
-    print(f"Tamanho da cache: {len(cache)}")
-    print("Posição Cache\tPosição Memória")
-    for indice, valor in cache.items():
-        print(f"{indice}\t\t\t\t\t{valor}")
-
-# imprimir_cache(outputCache)
 def mapeamento_direto(tamanho_cache, pos_memoria):
     cache = inicializar_cache(tamanho_cache)
     imprimir_cache(cache)
@@ -20,16 +6,14 @@ def mapeamento_direto(tamanho_cache, pos_memoria):
     total_misses = 0
 
     for posicao in pos_memoria:
-        indice_cache = posicao % tamanho_cache
+        indice_cache = 0  # Sempre mapeia para a posição 0 da cache
         endereco_atual = cache[indice_cache]
 
         if endereco_atual == posicao:
-            print("---------------------------------------------------------")
             print(f"A posição de memória {posicao} está presente na cache.")
             print("Ocorreu um HIT.")
             total_hits += 1
         else:
-            print("---------------------------------------------------------")
             print(f"A posição de memória {posicao} não está presente na cache.")
             print("Ocorreu um MISS.")
             cache[indice_cache] = posicao
@@ -46,13 +30,24 @@ def mapeamento_direto(tamanho_cache, pos_memoria):
     print(f"Taxa de cache hit: {taxa_hit:.2%}")
 
 
-# posicoes_memoria = [33, 3, 11, 5]
-# posicoes_memoria = [0,1,2,3,4,5,6]
-# posicoes_memoria = [0,1,2,2,22,32,42,20,1,10,11,12,13]
+# Funções auxiliares
+def inicializar_cache(tamanho_cache):
+    cache = {}
+    for indice in range(tamanho_cache):
+        cache[indice] = -1
+    return cache
+
+
+def imprimir_cache(cache):
+    print(f"Tamanho da cache: {len(cache)}")
+    print("Tabela:")
+    for indice, valor in cache.items():
+        print(f"Índice {indice}: {valor}")
+
+
+# Configuração de acesso em memória para mapeamento direto
+# posicoes_memoria = [0, 8, 16, 24, 32]  # Acesso a múltiplos de 8
+
 posicoes_memoria = [1,6,1,11,1,16,1,21,1,26]
-
-
-tamanho_cache = 5
-
+tamanho_cache = 8
 mapeamento_direto(tamanho_cache, posicoes_memoria)
-
