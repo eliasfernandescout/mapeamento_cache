@@ -80,14 +80,13 @@ tecnica_substituicao = "LRU"  # Pode ser "LRU", "LFU" ou "FIFO"
 mapeamento_associativo_conjunto(tamanho_conjunto, tecnica_substituicao, posicoes_memoria)
 
 
-# posicoes_memoria = [0, 1, 2, 3, 4, 1, 2, 5, 6, 7]  # Exemplo de acesso em memória
-#
-# # Configuração 1 - Tamanho do conjunto: 2, Técnica de substituição: LRU
-# tamanho_conjunto = 2
-# tecnica_substituicao = "LRU"
-# mapeamento_associativo_conjunto(tamanho_conjunto, tecnica_substituicao, posicoes_memoria)
-# print("----------------------------------------")
-#
+posicoes_memoria = [0,1,2,3,1,4,5,6]
+
+tamanho_conjunto = 2
+tecnica_substituicao = "LRU"
+mapeamento_associativo_conjunto(tamanho_conjunto, tecnica_substituicao, posicoes_memoria)
+print("----------------------------------------")
+
 # # Configuração 2 - Tamanho do conjunto: 2, Técnica de substituição: LFU
 # tamanho_conjunto = 2
 # tecnica_substituicao = "LFU"
