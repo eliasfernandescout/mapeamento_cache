@@ -49,5 +49,5 @@ def imprimir_cache(cache):
 # posicoes_memoria = [0, 8, 16, 24, 32]  # Acesso a múltiplos de 8
 
 posicoes_memoria = [1,6,1,11,1,16,1,21,1,26]
-tamanho_cache = 8
+tamanho_cache = 5
 mapeamento_direto(tamanho_cache, posicoes_memoria)
