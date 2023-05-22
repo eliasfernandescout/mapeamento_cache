@@ -1,6 +1,5 @@
 from collections import deque
 
-
 class CacheEntry:
     def __init__(self, endereco):
         self.endereco = endereco
